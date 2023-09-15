@@ -12,6 +12,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('admin.posts.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-image"></i>
+                        <p>
+                            Посты
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('admin.categories.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-list-ul"></i>
                         <p>
@@ -24,14 +32,6 @@
                         <i class="nav-icon fas fa-tag"></i>
                         <p>
                             Теги
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-image"></i>
-                        <p>
-                            Посты
                         </p>
                     </a>
                 </li>

@@ -153,5 +153,10 @@ return [
 
     'attributes' => [
         'title' => 'название',
+        'content' => 'контент',
+        'preview_image' => 'превью поста',
+        'main_image' => 'главное изображение',
+        'category_id' => 'категория',
+        'tag_ids' => 'теги',
     ],
 ];

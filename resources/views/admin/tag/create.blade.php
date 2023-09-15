@@ -18,7 +18,7 @@
                         <div class="form-group">
                             <label>Название</label>
                             <input type="text" name="title" class="form-control" placeholder="Название тега"
-                                value="{{ old('title') ?? '' }}">
+                                value="{{ old('title') }}">
                             @error('title')
                             <div class="text-danger small">
                                 {{ $message }}
