@@ -115,7 +115,7 @@
 @endsection
 
 @push('css-start')
-<link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
+<link rel="stylesheet" href="{{ asset('/plugins/select2/css/select2.min.css') }}">
 @endpush
 
 @push('css')
