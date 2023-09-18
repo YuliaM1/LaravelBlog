@@ -18,7 +18,11 @@ Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
     Route::get('/', IndexController::class);
 });
 
-Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'], function () {
+Route::group([
+    'namespace' => 'App\Http\Controllers\Admin',
+    'prefix' => 'admin',
+    'middleware' => ['auth', 'admin']
+], function () {
     Route::group(['namespace' => 'Main'], function () {
         Route::get('/', IndexController::class)->name('admin.index');
     });
@@ -51,6 +55,16 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'],
         Route::get('/{post}/edit', EditController::class)->name('admin.posts.edit');
         Route::patch('/{post}', UpdateController::class)->name('admin.posts.update');
         Route::delete('/{post}', DeleteController::class)->name('admin.posts.delete');
+    });
+
+    Route::group(['namespace' => 'User', 'prefix' => 'users'], function () {
+        Route::get('/', IndexController::class)->name('admin.users.index');
+        Route::get('/create', CreateController::class)->name('admin.users.create');
+        Route::post('/', StoreController::class)->name('admin.users.store');
+        Route::get('/{user}', ShowController::class)->name('admin.users.show');
+        Route::get('/{user}/edit', EditController::class)->name('admin.users.edit');
+        Route::patch('/{user}', UpdateController::class)->name('admin.users.update');
+        Route::delete('/{user}', DeleteController::class)->name('admin.users.delete');
     });
 });
 
