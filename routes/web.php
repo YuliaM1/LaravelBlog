@@ -18,10 +18,24 @@ Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
     Route::get('/', IndexController::class);
 });
 
-Route::middleware(['auth', 'admin', 'verified'])->group(function () {
-    Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin',], function () {
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::group(['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'personal'], function () {
         Route::group(['namespace' => 'Main'], function () {
-            Route::get('/', IndexController::class)->name('admin.index');
+            Route::get('/', IndexController::class)->name('personal.main.index');
+        });
+        Route::group(['namespace' => 'Like', 'prefix' => 'likes'], function () {
+            Route::get('/', IndexController::class)->name('personal.likes.index');
+        });
+        Route::group(['namespace' => 'Comment', 'prefix' => 'comments'], function () {
+            Route::get('/', IndexController::class)->name('personal.comments.index');
+        });
+    });
+});
+
+Route::middleware(['auth', 'admin', 'verified'])->group(function () {
+    Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'], function () {
+        Route::group(['namespace' => 'Main'], function () {
+            Route::get('/', IndexController::class)->name('admin.main.index');
         });
 
         Route::group(['namespace' => 'Category', 'prefix' => 'categories'], function () {
