@@ -5,6 +5,10 @@
 <div class="content-wrapper">
     <x-admin.content-header>
         Посты
+        <x-slot name="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Главная</a></li>
+            <li class="breadcrumb-item active">Посты</li>
+        </x-slot>
     </x-admin.content-header>
 
     <!-- Main content -->

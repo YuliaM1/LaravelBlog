@@ -5,6 +5,11 @@
 <div class="content-wrapper">
     <x-admin.content-header>
         Редактирование пользователя
+        <x-slot name="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Главная</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('admin.users.index') }}">Пользователи</a></li>
+            <li class="breadcrumb-item active">{{ $user->name }}</li>
+        </x-slot>
     </x-admin.content-header>
 
     <!-- Main content -->
