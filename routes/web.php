@@ -25,6 +25,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         });
         Route::group(['namespace' => 'Like', 'prefix' => 'likes'], function () {
             Route::get('/', IndexController::class)->name('personal.likes.index');
+            Route::delete('/{post}', DeleteController::class)->name('personal.likes.delete');
         });
         Route::group(['namespace' => 'Comment', 'prefix' => 'comments'], function () {
             Route::get('/', IndexController::class)->name('personal.comments.index');
