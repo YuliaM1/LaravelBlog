@@ -15,7 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
-    Route::get('/', IndexController::class);
+    Route::get('/', IndexController::class)->name('main.index');
+});
+
+Route::group(['namespace' => 'App\Http\Controllers\Post', 'prefix' => 'posts'], function () {
+    Route::get('/', IndexController::class)->name('posts.index');
+    Route::get('/{post}', ShowController::class)->name('posts.show');
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
