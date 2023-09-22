@@ -19,8 +19,34 @@
                 </div>
             </div>
         </section>
+        <section class="mb-2">
+            <div class="row">
+                <div class="col-lg-9 mx-auto" data-aos="fade-up">
+                    @auth
+                    <form action="{{ route('posts.likes.store', $post->id) }}" method="POST">
+                        @csrf
+                        <span>{{ $post->liked_users_count }}</span>
+                        <button type="submit" class="bg-transparent border-0">
+                            @if (auth()->user()->likedPosts->contains($post))
+                            <i class="fas fa-heart"></i>
+                            @else
+                            <i class="far fa-heart"></i>
+                            @endif
+                        </button>
+                    </form>
+                    @endauth
+                    @guest
+                    <div>
+                        <span>{{ $post->liked_users_count }}</span>
+                        <i class="far fa-heart ml-1"></i>
+                    </div>
+                    @endguest
+                </div>
+            </div>
+        </section>
         <div class="row">
             <div class="col-lg-9 mx-auto">
+                @if ($relatedPosts->count() != 0)
                 <section class="related-posts">
                     <h2 class="section-title mb-4" data-aos="fade-up">Схожие посты</h2>
                     <div class="row">
@@ -36,6 +62,7 @@
                         @endforeach
                     </div>
                 </section>
+                @endif
                 @if ($comments->count() != 0)
                 <section class="comment-list-section mb-5">
                     <h2 class="section-title mb-5" data-aos="fade-up">Комментарии</h2>

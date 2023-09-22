@@ -34,7 +34,7 @@
                                         <td>{{ $comment->id }}</td>
                                         <td>{{ $comment->message }}</td>
                                         <td class="d-flex">
-                                            <a href="{{ route('admin.posts.show', $comment->post->id) }}">
+                                            <a href="{{ route('posts.show', $comment->post->id) }}">
                                                 <i class="fas fa-eye"></i>
                                             </a>
                                             <a href="{{ route('personal.comments.edit', $comment->id) }}" class="ml-3">

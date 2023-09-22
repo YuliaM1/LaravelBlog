@@ -25,6 +25,18 @@ Route::group(['namespace' => 'App\Http\Controllers\Post', 'prefix' => 'posts'], 
     Route::group(['namespace' => 'Comment', 'prefix' => '{post}/comments'], function () {
         Route::post('/', StoreController::class)->name('posts.comments.store');
     });
+
+    Route::group(['namespace' => 'Like', 'prefix' => '{post}/likes'], function () {
+        Route::post('/', StoreController::class)->name('posts.likes.store');
+    });
+});
+
+Route::group(['namespace' => 'App\Http\Controllers\Category', 'prefix' => 'categories'], function () {
+    Route::get('/', IndexController::class)->name('categories.index');
+
+    Route::group(['namespace' => 'Post', 'prefix' => '{category}/posts'], function () {
+        Route::get('/', IndexController::class)->name('categories.posts.index');
+    });
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -32,10 +44,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::group(['namespace' => 'Main'], function () {
             Route::get('/', IndexController::class)->name('personal.main.index');
         });
+
         Route::group(['namespace' => 'Like', 'prefix' => 'likes'], function () {
             Route::get('/', IndexController::class)->name('personal.likes.index');
             Route::delete('/{post}', DeleteController::class)->name('personal.likes.delete');
         });
+
         Route::group(['namespace' => 'Comment', 'prefix' => 'comments'], function () {
             Route::get('/', IndexController::class)->name('personal.comments.index');
             Route::get('/{comment}', EditController::class)->name('personal.comments.edit');
