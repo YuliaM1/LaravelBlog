@@ -18,8 +18,8 @@
     <header class="edica-header">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="index.html"><img src="{{ asset('assets/images/logo.svg') }}"
-                        alt="Edica"></a>
+                <a class="navbar-brand" href="{{ route('main.index') }}"><img
+                        src="{{ asset('assets/images/logo.svg') }}" alt="Edica"></a>
                 <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
                     data-target="#edicaMainNav" aria-controls="collapsibleNavId" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -30,6 +30,29 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('main.index') }}">Блог</a>
                         </li>
+                    </ul>
+                    <ul class="navbar-nav mt-2 mt-lg-0 ml-auto">
+                        @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">Войти</a>
+                        </li>
+                        @endguest
+                        @can('view', auth()->user())
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.main.index') }}">Админ-панель</a>
+                        </li>
+                        @endcan
+                        @auth
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('personal.main.index') }}">Личный кабинет</a>
+                        </li>
+                        <li class="nav-item">
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <input class="nav-link bg-transparent border-0" type="submit" value="Выйти">
+                            </form>
+                        </li>
+                        @endauth
                     </ul>
                 </div>
             </nav>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Personal\Comment;
+namespace App\Http\Requests\Post\Comment;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -22,7 +22,7 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'string', 'max:255']
+            'message' => ['required', 'string']
         ];
     }
 }
