@@ -12,7 +12,7 @@ class AdminPolicy
      */
     public function viewAny(User $user): bool
     {
-        return (User::getRoles()[$user->role] == 'Админ');
+        return ($user->role == User::ROLE_ADMIN);
     }
 
     /**
@@ -20,7 +20,7 @@ class AdminPolicy
      */
     public function view(User $user, User $model): bool
     {
-        return (User::getRoles()[$model->role] == 'Админ');
+        return ($model->role == User::ROLE_ADMIN);
     }
 
     /**
@@ -28,7 +28,7 @@ class AdminPolicy
      */
     public function create(User $user): bool
     {
-        return (User::getRoles()[$user->role] == 'Админ');
+        return ($user->role == User::ROLE_ADMIN);
     }
 
     /**
@@ -36,7 +36,7 @@ class AdminPolicy
      */
     public function update(User $user, User $model): bool
     {
-        return (User::getRoles()[$user->role] == 'Админ');
+        return ($user->role == User::ROLE_ADMIN);
     }
 
     /**
@@ -44,7 +44,7 @@ class AdminPolicy
      */
     public function delete(User $user, User $model): bool
     {
-        return (User::getRoles()[$user->role] == 'Админ');
+        return ($user->role == User::ROLE_ADMIN);
     }
 
     /**
@@ -52,7 +52,7 @@ class AdminPolicy
      */
     public function restore(User $user, User $model): bool
     {
-        return (User::getRoles()[$user->role] == 'Админ');
+        return ($user->role == User::ROLE_ADMIN);
     }
 
     /**
@@ -60,6 +60,6 @@ class AdminPolicy
      */
     public function forceDelete(User $user, User $model): bool
     {
-        return (User::getRoles()[$user->role] == 'Админ');
+        return ($user->role == User::ROLE_ADMIN);
     }
 }

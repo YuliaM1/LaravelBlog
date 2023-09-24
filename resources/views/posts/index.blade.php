@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
+@section('page-title')
+Блог
+@endsection
+
 @section('content')
 
 <main class="blog">

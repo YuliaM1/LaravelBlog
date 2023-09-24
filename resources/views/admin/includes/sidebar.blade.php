@@ -1,4 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <a href="{{ route('main.index') }}" class="brand-link">
+        <span class="brand-text font-weight-light ml-4">Главная</span>
+    </a>
     <!-- Sidebar -->
     <nav class="mt-2">
         <div class="sidebar">
@@ -7,7 +10,7 @@
                     <a href="{{ route('admin.main.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-home"></i>
                         <p>
-                            Главная
+                            Админ-панель
                         </p>
                     </a>
                 </li>

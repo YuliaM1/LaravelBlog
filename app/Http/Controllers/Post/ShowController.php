@@ -17,6 +17,6 @@ class ShowController extends Controller
             ->get()
             ->take(3);
         $comments = Comment::where('post_id', $post->id)->get();
-        return view('post.show', compact('post', 'relatedPosts', 'comments'));
+        return view('posts.show', compact('post', 'relatedPosts', 'comments'));
     }
 }

@@ -11,6 +11,6 @@ class CreateController extends BaseController
     {
         $categories = Category::all();
         $tags = Tag::all();
-        return view('admin.post.create', compact('categories', 'tags'));
+        return view('admin.posts.create', compact('categories', 'tags'));
     }
 }

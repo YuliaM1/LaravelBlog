@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
+@section('page-title')
+{{ $post->title }}
+@endsection
+
 @section('content')
 
 <main class="blog-post">

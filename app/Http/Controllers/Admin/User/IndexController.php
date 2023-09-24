@@ -13,6 +13,6 @@ class IndexController extends Controller
         foreach ($users as $user) {
             $user->role_name = User::getRoles()[$user->role];
         }
-        return view('admin.user.index', compact('users'));
+        return view('admin.users.index', compact('users'));
     }
 }
