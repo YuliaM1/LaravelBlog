@@ -9,7 +9,7 @@
 <main class="blog mb-5">
     <div class="container">
         <h1 class="edica-page-title" data-aos="fade-up">Категории</h1>
-        <section class="categories-section">
+        <section class="categories-section" data-aos="fade-up">
             <div class="row">
                 @foreach ($categories as $category)
                 <div class="col-3">
