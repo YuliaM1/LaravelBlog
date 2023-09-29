@@ -12,11 +12,12 @@ class ShowController extends Controller
 {
     public function __invoke(Post $post)
     {
-        $relatedPosts = Post::where('category_id', $post->category_id)
+        $relatedPosts = Post::with('category')
+            ->where('category_id', $post->category_id)
             ->where('id', '!=', $post->id)
             ->get()
             ->take(3);
-        $comments = Comment::where('post_id', $post->id)->get();
+        $comments = $post->comments()->with('user')->get();
         return view('posts.show', compact('post', 'relatedPosts', 'comments'));
     }
 }

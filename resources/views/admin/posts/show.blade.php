@@ -43,6 +43,10 @@
                                         <th>Название</th>
                                         <td>{{ $post->title }}</td>
                                     </tr>
+                                    <tr>
+                                        <th>Категория</th>
+                                        <td>{{ $post->category->title }}</td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

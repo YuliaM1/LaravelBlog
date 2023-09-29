@@ -8,7 +8,7 @@ class IndexController extends BaseController
 {
     public function __invoke()
     {
-        $posts = Post::all();
+        $posts = Post::with('category')->get();
         return view('admin.posts.index', compact('posts'));
     }
 }

@@ -30,6 +30,7 @@
                                     <tr>
                                         <th class="w-25">ID</th>
                                         <th>Название</th>
+                                        <th>Категория</th>
                                         <th>Действия</th>
                                     </tr>
                                 </thead>
@@ -38,6 +39,7 @@
                                     <tr>
                                         <td>{{ $post->id }}</td>
                                         <td>{{ $post->title }}</td>
+                                        <td>{{ $post->category->title }}</td>
                                         <td class="d-flex">
                                             <a href="{{ route('admin.posts.show', $post->id) }}">
                                                 <i class="fas fa-eye"></i>

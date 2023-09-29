@@ -11,7 +11,7 @@ class IndexController extends Controller
 {
     public function __invoke(Category $category)
     {
-        $posts = $category->posts()->paginate(9);
+        $posts = $category->posts()->with('category')->paginate(9);
         return view('categories.post.index', compact('category', 'posts'));
     }
 }
