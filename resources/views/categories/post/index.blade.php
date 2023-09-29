@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
+@section('page-title')
+{{ $category->title }}
+@endsection
+
 @section('content')
 
 <main class="blog">
@@ -7,6 +11,9 @@
         <h1 class="edica-page-title" data-aos="fade-up">Блог</h1>
         <section class="featured-posts-section">
             <div class="row">
+                @if (count($posts) == 0)
+                <h2 class="mb-5" data-aos="fade-up">Посты не были найдены</h2>
+                @else
                 @foreach ($posts as $post)
                 <div class="col-md-4 fetured-post blog-post" data-aos="fade-up">
                     <div class="blog-post-thumbnail-wrapper">
@@ -39,6 +46,7 @@
                     </a>
                 </div>
                 @endforeach
+                @endif
             </div>
             <div class="row" data-aos="fade-up">
                 <div class="mx-auto" style="margin-top: -100px;">

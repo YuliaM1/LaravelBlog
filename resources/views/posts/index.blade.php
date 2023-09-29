@@ -109,7 +109,16 @@
                 </div>
                 <div class="widget">
                     <h5 class="widget-title">Categories</h5>
-                    <img src="{{ asset('assets/images/blog_widget_categories.jpg') }}" alt="categories" class="w-100">
+                    <ul class="list-group list-group-flush">
+                        @foreach ($categories as $category)
+                        <li class="list-group-item">
+                            <a href="{{ route('categories.posts.index', $category->id) }}"
+                                class="text-dark font-weight-bold">
+                                {{ $category->title }}
+                            </a>
+                        </li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>
