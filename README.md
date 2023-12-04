@@ -23,6 +23,25 @@
 
 Функционал пользователей разграничен системой ролей. Неавторизованный пользователь может зарегистрироваться и авторизоваться.
 
+## Галерея
+
+Админ-панель:
+
+![image](https://github.com/YuliaM1/LaravelBlog/assets/64122021/82170114-2777-4ee5-81e7-99f28fa0c39f)
+
+Редактирование поста в админ-панели:
+
+![image](https://github.com/YuliaM1/LaravelBlog/assets/64122021/5d7a2e1d-490b-4eb3-a701-587b7e806ca4)
+
+
+Профиль:
+
+![image](https://github.com/YuliaM1/LaravelBlog/assets/64122021/664ae3ec-429f-414e-b1c5-72e9339bfb90)
+
+Просмотр поста:
+
+![Nesciunt-provident-enim-iure-nobis-neque](https://github.com/YuliaM1/LaravelBlog/assets/64122021/a0671ea7-7a26-40c4-8453-79a54d832824)
+
 ## Установка
 
 - клонировать репозиторий: `git clone`;
