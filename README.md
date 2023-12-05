@@ -45,7 +45,7 @@
 ## Установка
 
 - клонировать репозиторий: `git clone`;
-- обновить зависимости `composer update`;
+- загрузка пакетов: `composer install`, `npm install`;
 - создать файл `.env` на основе `.env.example`;
 - сгенерировать ключ: `php artisan key:generate`;
 - указать подключение к базе данных в `.env`;
